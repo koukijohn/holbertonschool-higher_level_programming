@@ -6,3 +6,4 @@ def new_in_list(my_list, idx, element):
         replacement = my_list[:]
         replacement[idx] = element
         return replacement
+    return my_list
