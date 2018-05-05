@@ -1,0 +1,43 @@
+This module is about dividing a matrix.
+- - - - - - - - - - - - - - - - - - - -
+This uses the ``matrix_divided`` function.
+------------------------------------------
+
+===================================================================
+
+Importing the function so that the computer knows where to doctest.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+
+==================================================================
+Example of successful division of a matrix.
+
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+==================================================================
+#Failcases
+-------------------------------------------------------------------
+EdgeCase: matrix must be a list of lists of integers or floats,
+         otherwise raise a TypeError exception with the message
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-------------------------------------------------------------------
+
+>>> matrix_divided(str, 1)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided(None, 1)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided("", 1)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided(" ", 1)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
