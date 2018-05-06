@@ -9,14 +9,10 @@ def matrix_divided(matrix, div):
     Returns:
         a new matrix.
 
-    >>> matrix_divided(matrix, 3)
-    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
-
     """
-
-
-
-    newmatrix = []
-    for v in matrix:
-        newmatrix.append(list(map(lambda v: round(v / div, 2)))
-    return newmatrix
+    new_matrix = []
+    for row in range(len(matrix)):
+        new_matrix.append([])
+        for elements in matrix[row]:
+            new_matrix[row].append(round((elements / div), 2))
+    return new_matrix
