@@ -1,0 +1,51 @@
+This module is about checking test cases for the functiuon say my name.
+
+===============================================================================
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+-------------------------------------------------------------------------------
+EdgeCase: first_name must be strings otherwise, raise a TypeError
+ exception with the message first_name must be a string
+
+Traceback (most recent call last):
+TypeError: first_name must be a string
+-------------------------------------------------------------------------------
+
+>>> say_my_name(1, "John")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name([], "John")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(None, "John")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+-------------------------------------------------------------------------------
+
+
+EdgeCase: first_name and last_name must be strings otherwise, raise a TypeError
+ exception with the message or last_name must be a
+ string
+
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+-------------------------------------------------------------------------------
+
+
+>>> say_my_name("Germ", 1)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Germ", None)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Germ", [])
+Traceback (most recent call last):
+TypeError: last_name must be a string
