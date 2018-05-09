@@ -3,20 +3,20 @@ This module is about adding integers.
 =====================================
 
 We are importing add_integer.
-==============================
-SUCCESS CASE
-==============================
------------------------------
 
 >>> add_integer = __import__("0-add_integer").add_integer
 
->>> add_integer(1, 2)
+
+==============================
+SUCCESS CASES
+
+add_integer(1, 2)
 3
->>> add_integer(100, -2)
+add_integer(100, -2)
 98
->>> add_integer(2)
+add_integer(2)
 100
->>> add_integer(100.3, -2)
+add_integer(100.3, -2)
 98
 
 ==============================================
