@@ -18,9 +18,38 @@ class Rectangle:
             None.
         """
 
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
+
+    @property
+    def width(self):
+        """ This retrieves the width.
+
+        Args:
+            None.
+
+        Return:
+            None.
+
+        """
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """ This sets the width equal to the value.
+
+        Args:
+            value: This is the value of the width to set.
+
+        Return:
+            None.
+        """
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -33,7 +62,7 @@ class Rectangle:
             None.
 
         """
-        self.__height = height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -52,52 +81,19 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    @property
-    def width(self):
-        """ This retrieves the width.
-
-        Args:
-            None.
-
-        Return:
-            None.
-
-        """
-        self.__width = width
-
-    @width.setter
-    def width(self, value):
-        """ This sets the width equal to the value.
-
-        Args:
-            value: This is the value of the width to set.
-
-        Return:
-            None.
-        """
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
-
     def area(self):
         """ This will find the area of a rectangle.
-
         Args:
             None.
-
         Return:
             None.
         """
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
         """ This will find the perimeter.
-
         Args:
             None.
-
         Return:
             None.
         """
@@ -109,10 +105,8 @@ class Rectangle:
 
     def __str__(self):
         """ This should print a rectangle with the character "#"
-
         Args:
                 None.
-
         Return:
             Empty string or rectangle.
         """
@@ -129,9 +123,11 @@ class Rectangle:
 
     def __repr__(self):
         """ This returns the string representation of the rectangle. """
+
         return ("Rectangle({}, {})".format(self.__width, self.__height))
 
     def __del__(self):
         """ This prints a message when an instance of Rectangle is deleted. """
-        print("Bye rectangle…")
+
+        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
