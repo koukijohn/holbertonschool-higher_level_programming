@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """
-This module adds integer together.
-The first argument and second argument add eachother
-
+This module adds integers together.
 """
+
 
 def add_integer(a, b=98):
     """ This function adds intgers and returns the sum.
