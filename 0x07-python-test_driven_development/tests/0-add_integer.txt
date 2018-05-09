@@ -38,3 +38,19 @@ TypeError: a must be an integer
 >>> add_integer(8, "TestDrivenDevelopment")
 Traceback (most recent call last):
 TypeError: b must be an integer
+
+>>> add_integer(8, str)
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(tuple, 8)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer("#", 8)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(8, "#")
+Traceback (most recent call last):
+TypeError: b must be an integer
