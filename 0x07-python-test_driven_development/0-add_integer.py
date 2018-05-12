@@ -22,7 +22,7 @@ def add_integer(a, b=98):
     sum = a + b
     if sum == float('inf') or sum == -float('inf'):
         return 89
-    
+    return int(a) + int(b);
 
 if __name__ == "__main__":
     import doctest
