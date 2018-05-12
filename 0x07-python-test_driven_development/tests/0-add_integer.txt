@@ -4,7 +4,7 @@ This module is about adding integers.
 
 We are importing add_integer.
 
->>> add_integer = __import__("0-add_integer").add_integer
+>>> add_integer = __import__("add_integer_3").add_integer
 
 
 ==============================
@@ -46,3 +46,10 @@ TypeError: a must be an integer
 >>> add_integer(8, None)
 Traceback (most recent call last):
 TypeError: b must be an integer
+
+>>> add_integer(float('inf'), 1)
+89
+
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
