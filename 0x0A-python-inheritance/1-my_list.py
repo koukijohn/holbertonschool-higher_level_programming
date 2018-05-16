@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 class MyList(list):
     """ Ths is a class that inherits from list.
     """
