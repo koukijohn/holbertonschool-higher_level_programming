@@ -27,6 +27,18 @@ ValueError: distance must be greater than 0
 Traceback (most recent call last):
 TypeError: Germ must be an integer
 
->>> bg.integer_validator(str, Germ)
+>>> bg.integer_validator(str, "Worm")
 Traceback (most recent call last):
-NameError: name 'Germ' is not defined
+TypeError: <class 'str'> must be an integer
+
+>>> bg.integer_validator("The", [])
+Traceback (most recent call last):
+TypeError: The must be an integer
+
+>>> bg.integer_validator("The")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
