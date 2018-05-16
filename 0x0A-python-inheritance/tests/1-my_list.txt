@@ -13,6 +13,9 @@ This module is about testing the appending of mylist.
 
 Expected outputs
 
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
 
