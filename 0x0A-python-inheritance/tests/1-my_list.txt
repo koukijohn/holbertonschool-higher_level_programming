@@ -21,3 +21,10 @@ Expected outputs
 
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+
+Other outputs
+
+>>> my_list.append(-8)
+>>> print(my_list)
+[1, 4, 2, 3, 5, -8]
