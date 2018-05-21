@@ -9,10 +9,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """ This will instantiate our attributes. """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @staticmethod
     def integer_validator(name, value):
@@ -64,3 +64,7 @@ class Rectangle(Base):
     def y(self, value):
         Rectangle.integer_validator("y", value)
         self.__y = value
+
+    def area(self):
+        """ This returns the area value of the Rectangle instance. """
+        return self.width * self.height
