@@ -60,10 +60,10 @@ class Base:
         try:
             with open("{}.json".format(cls.__name__), "r",
                       encoding="UTF8") as x:
-                load = json.load(x)
+                list = json.load(x)
                 instance = []
-                for g in load:
-                    instance.append(cls.create(**g))
+                for elements in list:
+                    instance.append(cls.create(**elements))
                 return instance
         except FileNotFoundError:
-            return ([])
+            return []
