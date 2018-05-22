@@ -68,3 +68,40 @@ class Rectangle(Base):
     def area(self):
         """ This returns the area value of the Rectangle instance. """
         return self.width * self.height
+
+    def display(self):
+        """  Prints in stdout the Rectangle instance with the character # """
+
+        xspaces = " " * self.x
+        ynewlines = "\n" * self.y
+
+        print(ynewlines, end="")
+        for y in range(self.height):
+            print(xspaces, end="")
+            for x in range(self.width):
+                print("#", end="")
+            print("")
+
+    def __str__(self):
+        """ Returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                self.x, self.y, self.width, self.height))
+
+    def update(self, *args, **kwargs):
+        """ This assigns an argument to each attribute. """
+        attribute = ["id", "width", "height", "x", "y"]
+        for element in range(len(args)):
+            if args is not None:
+                setattr(self, attribute[element], args[element])
+
+        for key in attribute:
+            if key in kwargs and kwargs[key] is not None:
+                setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """ This returns the dictionary representation of a Rectangle. """
+        attribute = ["id", "width", "height", "x", "y"]
+        dictrepr = {}
+        for element in attribute:
+            dictrepr[element] = getattr(self, element)
+        return dictrepr
