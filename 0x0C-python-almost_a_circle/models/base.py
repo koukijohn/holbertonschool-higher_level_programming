@@ -48,9 +48,9 @@ class Base:
     def create(cls, **dictionary):
         """ Returns an instance with all attributes already set. """
         if cls.__name__ == "Square":
-            x = cls(8, 8, 8, 8)
+            x = cls(8)
         if cls.__name__ == "Rectangle":
-            x = cls(8, 8, 8, 8, 8)
+            x = cls(8, 8)
         x.update(**dictionary)
         return x
 
