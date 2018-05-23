@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-This module contains all unittest cases for
-Base class
-"""
+""" This module contains all of the unittest cases for the Base class. """
 import unittest
 import pep8
 from models.base import Base
@@ -14,45 +11,40 @@ import os
 
 
 class TestRectangle(unittest.TestCase):
-    """
-    Class containing functions to run
-    multiple tests
-    """
+    """ This class contains functions to run
+    multiple tests. """
+
     def setUp(self):
-        """
-        function to redirect stdout to check
-        outpute of functions relying on print
-        """
+        """ This function checks the output of the redirected stdout functions
+        relying on print. """
+
         sys.stdout = StringIO()
 
     def tearDown(self):
+        """ This tearsDown/cleans everything up after running
+        setup.
         """
-        cleans everything up after running
-        setup
-        """
+
         sys.stdout = sys.__stdout__
 
     def test_pep8_model(self):
-        """
-        Tests for pep8
-        """
+        """ This tests for pep8. """
+
         p8 = pep8.StyleGuide(quiet=True)
         p = p8.check_files(['models/rectangle.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_pep8_test(self):
-        """
-        Tests for pep8
-        """
+        """ This tests for pep8. """
+
         p8 = pep8.StyleGuide(quiet=True)
         p = p8.check_files(['tests/test_models/test_rectangle.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_00_documentation(self):
-        """
-        Test to see if documentation is
-        created and correct
-        """
+        """ This tests to see if the documentation is
+        created and correct. """
+
         self.assertTrue(hasattr(Rectangle, "__init__"))
         self.assertTrue(Rectangle.__init__.__doc__)
         self.assertTrue(hasattr(Rectangle, "width"))
@@ -75,9 +67,8 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(Rectangle.to_dictionary.__doc__)
 
     def test_0_id(self):
-        """
-        Tests for id
-        """
+        """ This tests for the id. """
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(10, 11)
         R2 = Rectangle(11, 12, 13)
@@ -93,10 +84,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(R5.id, "10")
 
     def test_1_arg(self):
-        """
-        Test for checking numbers of
-        objects
-        """
+        """ This tests for checking numbers of
+        objects. """
+
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             Rectangle(10)
@@ -104,9 +94,8 @@ class TestRectangle(unittest.TestCase):
             Rectangle(x=10, y=20)
 
     def test_2_TypeError(self):
-        """
-        Test for check Type Error
-        """
+        """ This tests for check Type Error. """
+
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle("Hello", 2)
@@ -122,9 +111,8 @@ class TestRectangle(unittest.TestCase):
             Rectangle(True, 2, 4, 5)
 
     def test_3_ValueError(self):
-        """
-        Test for checking value error
-        """
+        """ This tests for checking value error. """
+
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Rectangle(-3, 2)
             Rectangle(0, 1)
@@ -139,10 +127,9 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, 3, 0)
 
     def test_4_area(self):
-        """
-        This test is for testing the area
-        method
-        """
+        """ This test is for testing the area
+        method. """
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(1, 2)
         R2 = Rectangle(2, 3, 4)
@@ -156,18 +143,16 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(R5.area(), 9999999999999 * 99999999999999)
 
     def test_5_area(self):
-        """
-        Tests for less than 2 args
-        """
+        """ This tests for less than 2 args. """
+
         with self.assertRaises(TypeError):
             R = Rectangle()
             self.R.area(1)
 
     def test_6_display(self):
-        """
-        Test display method. Redirecting stdout to StringIO instance with
-        expected output.
-        """
+        """ This tests display method. Redirecting stdout to StringIO instance
+        with expected output."""
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(2, 4)
         R1O = "##\n" \
@@ -192,9 +177,8 @@ class TestRectangle(unittest.TestCase):
             sys.stdout.truncate(0)
 
     def test_7_str(self):
-        """
-        Test that __str__ method produces correct output.
-        """
+        """ This tests that __str__ method produces correct output. """
+
         Base._Base__nb_objects = 0
         R0 = Rectangle(3, 2, 3)
         self.assertEqual(R0.__str__(), "[Rectangle] (1) 3/0 - 3/2")
@@ -202,10 +186,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(R1.__str__(), "[Rectangle] (8) 6/7 - 4/5")
 
     def test_8_display_with_xy(self):
-        """
-        Test display method. Redirecting stdout to StringIO instance with
-        expected output.
-        """
+        """ This tests display method. Redirecting stdout to StringIO instance
+        with expected output. """
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(2, 3, 2, 2)
         R1O = "\n" \
@@ -230,9 +213,8 @@ class TestRectangle(unittest.TestCase):
             sys.stdout.truncate(0)
 
     def test_10_update2(self):
-        """
-        Test update() with **kwargs
-        """
+        """ This tests update() with **kwargs. """
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(1, 1, 1, 1)
         self.assertEqual(R1.__str__(), "[Rectangle] (1) 1/1 - 1/1")
@@ -250,10 +232,9 @@ class TestRectangle(unittest.TestCase):
         self.assertIs(type(R1.id), dict)
 
     def test_11_dict(self):
-        """
-        Test to_dictionary() method produces valid dictionary
-        of Rectangle.
-        """
+        """ This tests to_dictionary() method produces valid dictionary
+        of Rectangle. """
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(10, 2, 1, 9)
         self.assertEqual(R1.__str__(), "[Rectangle] (1) 1/9 - 10/2")
@@ -268,11 +249,10 @@ class TestRectangle(unittest.TestCase):
         self.assertNotEqual(R1, R2)
 
     def test_12_save_file_rect(self):
-        """
-        Test save_to_file() method of Rectangle to serialize
+        """ This tests the save_to_file() method of Rectangle to serialize
         and write to a file. Removes file after test if test
-        was able to write to disk.
-        """
+        was able to write to disk. """
+
         Base._Base__nb_objects = 0
         R1 = Rectangle(10, 7, 2, 8)
         R2 = Rectangle(2, 4)
