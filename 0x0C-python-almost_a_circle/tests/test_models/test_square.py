@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-This module contains all unittest cases for
-Base class
+This module contains all of the unittest cases for
+the Base class
 """
+
 import unittest
 import pep8
 from models.base import Base
@@ -14,45 +15,39 @@ import os
 
 
 class TestSquare(unittest.TestCase):
-    """
-    Class containing functions to run
-    multiple tests
-    """
+    """ This class contains functions to run
+    multiple tests. """
+
     def setUp(self):
-        """
-        function to redirect stdout to check
-        outpute of functions relying on print
-        """
+        """ This tests the output of the redirected stdout to check
+        if the functions are relying on print or not. """
+
         sys.stdout = StringIO()
 
     def tearDown(self):
-        """
-        cleans everything up after running
-        setup
-        """
+        """ This cleans everything up after running
+        setup. """
+
         sys.stdout = sys.__stdout__
 
     def test_pep8_model(self):
-        """
-        Tests for pep8
-        """
+        """ This tests for pep8. """
+
         p8 = pep8.StyleGuide(quiet=True)
         p = p8.check_files(['models/square.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_pep8_test(self):
-        """
-        Tests for pep8
-        """
+        """ This tests for pep8. """
+
         p8 = pep8.StyleGuide(quiet=True)
         p = p8.check_files(['tests/test_models/test_square.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_00_documentation(self):
-        """
-        Test to see if documentation is
-        created and correct
-        """
+        """ This tests to see if documentation is
+        created and correct. """
+
         self.assertTrue(hasattr(Square, "__init__"))
         self.assertTrue(Square.__init__.__doc__)
         self.assertTrue(hasattr(Square, "size"))
@@ -69,9 +64,8 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(Square.to_dictionary.__doc__)
 
     def test_0_id(self):
-        """
-        Testng for id
-        """
+        """ This is testing for the id. """
+
         S1 = Square(1)
         S2 = Square(1, 2)
         S3 = Square(1, 2, 3)
@@ -81,9 +75,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(S4.id, 4)
 
     def test_1_nb(self):
-        """
-        Test for correct args
-        """
+        """ This tests for the correct args. """
+
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             Square()
@@ -91,9 +84,8 @@ class TestSquare(unittest.TestCase):
             Square(x=3, y=4)
 
     def test_2_TypeError(self):
-        """
-        Test for TypeErrors
-        """
+        """ This test for TypeErrors. """
+
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square("22")
@@ -117,9 +109,8 @@ class TestSquare(unittest.TestCase):
             Square(10, 20, x=float(33))
 
     def test_2_ValueError(self):
-        """
-        Test for ValueErrors
-        """
+        """ This tests for ValueErrors. """
+
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-3)
@@ -130,9 +121,8 @@ class TestSquare(unittest.TestCase):
             Square(10, 14, -2)
 
     def test_3_str(self):
-        """
-        Test for __str__
-        """
+        """ Test for __str__. """
+
         Base._Base__nb_objects = 0
         S1 = Square(3)
         S2 = Square(3, 4)
@@ -142,9 +132,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(S3.__str__(), "[Square] (3) 4/5 - 3")
 
     def test_4_area(self):
-        """
-        Test for area method
-        """
+        """ This tests for area method. """
+
         Base._Base__nb_objects = 0
         S1 = Square(3)
         S2 = Square(3, 4)
@@ -156,9 +145,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(S4.area(), 232323232323232 ** 2)
 
     def test_5_display_xy(self):
-        """
-        Test display with offset
-        """
+        """ This tests display with offset. """
+
         Base._Base__nb_objects = 0
         S1 = Square(4)
         S1O = "####\n" \
@@ -195,9 +183,8 @@ class TestSquare(unittest.TestCase):
             sys.stdout.truncate(0)
 
     def test_6_size(self):
-        """
-        Test to see if size works right
-        """
+        """ This tests to see if size works right. """
+
         Base._Base__nb_objects = 0
         S1 = Square(3)
         self.assertEqual(S1.size, 3)
