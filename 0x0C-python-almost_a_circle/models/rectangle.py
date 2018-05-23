@@ -31,37 +31,45 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """ This gets the width. """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ This sets the width. """
         Rectangle.integer_validator("width", value)
         self.__width = value
 
     @property
     def height(self):
+        """ This gets the height. """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ This sets the height. """
         Rectangle.integer_validator("height", value)
         self.__height = value
 
     @property
     def x(self):
+        """ This gets x. """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """ This sets x. """
         Rectangle.integer_validator("x", value)
         self.__x = value
 
     @property
     def y(self):
+        """ This gets y. """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ This sets y. """
         Rectangle.integer_validator("y", value)
         self.__y = value
 
