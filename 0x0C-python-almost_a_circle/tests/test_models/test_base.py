@@ -14,13 +14,13 @@ import os
 class TestBase(unittest.TestCase):
     """ This class contains all of our unittest for Base. """
 
-    def setUp(self):
+    def setup(self):
         """ This function redirects to stdout and checks
         the output of functions relying on print. """
 
         sys.stdout = StringIO()
 
-    def tearDown(self):
+    def cleaner(self):
         """ This tearsDown/cleans everything up after running
         the setup. """
 
