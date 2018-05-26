@@ -104,7 +104,7 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(b.__nb_objects)
 
-    def test_4_dict(self):
+    def test_4_dictionary(self):
         """ This test checks to see if the dictionary
         is working. """
 
@@ -125,14 +125,14 @@ class TestBase(unittest.TestCase):
         self.assertTrue(type(js) is list)
         self.assertEqual(len(js), 2)
 
-    def test_7_from_json_string_empty(self):
+    def test_7_from_json_string_if_empty(self):
         """ This test checks to see if it works with
         an empty string or none. """
 
         self.assertEqual(Base.from_json_string(""), [])
         self.assertEqual(Base.from_json_string(None), [])
 
-    def test_10_rect(self):
+    def test_10_rectangle(self):
         """ This test checks for rectangle creation. """
 
         R1 = Rectangle(4, 5, 6)
@@ -140,7 +140,7 @@ class TestBase(unittest.TestCase):
         R2 = Rectangle.create(**R1_dict)
         self.assertNotEqual(R1, R2)
 
-    def test_11_sq(self):
+    def test_11_square(self):
         """ This test checks for the square creation. """
 
         S1 = Square(44, 55, 66, 77)
@@ -148,8 +148,8 @@ class TestBase(unittest.TestCase):
         S2 = Rectangle.create(**S1_dict)
         self.assertNotEqual(S1, S2)
 
-    def test_12_file_rect(self):
-        """ This test checks if the file loads from rect. """
+    def test_12_file_rectangle(self):
+        """ This test checks if the file loads from rectangle. """
 
         R1 = Rectangle(33, 34, 35, 26)
         R2 = Rectangle(202, 2)
