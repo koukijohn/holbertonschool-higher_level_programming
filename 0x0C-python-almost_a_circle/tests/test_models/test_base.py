@@ -66,54 +66,54 @@ class TestBase(unittest.TestCase):
         """ This test checks for the id method. """
 
         Base._Base__nb_objects = 0
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        b4 = Base(12)
-        b5 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
-        self.assertEqual(b4.id, 12)
-        self.assertEqual(b5.id, 4)
+        base1 = Base()
+        base2 = Base()
+        base3 = Base()
+        base4 = Base(12)
+        base5 = Base()
+        self.assertEqual(base1.id, 1)
+        self.assertEqual(base2.id, 2)
+        self.assertEqual(base3.id, 3)
+        self.assertEqual(base4.id, 12)
+        self.assertEqual(base5.id, 4)
 
     def test_1_id(self):
         """ This test checks after it runs a set of ids. """
 
         Base._Base__nb_objects = 0
-        bas = Base()
-        self.assertEqual(bas.id, 1)
+        base = Base()
+        self.assertEqual(base.id, 1)
 
     def test_2_id(self):
         """ This checks to see if the random arguments passed fail or not. """
 
         Base._Base__nb_objects = 0
-        t1 = Base(22)
-        self.assertEqual(t1.id, 22)
-        t2 = Base(-33)
-        self.assertEqual(t2.id, -33)
-        t3 = Base()
-        self.assertEqual(t3.id, 1)
+        test1 = Base(22)
+        self.assertEqual(test1.id, 22)
+        test2 = Base(-33)
+        self.assertEqual(test2.id, -33)
+        test3 = Base()
+        self.assertEqual(test3.id, 1)
 
     def test_3_set_nb(self):
         """ This checks to see if nb_objects is set as private. """
 
-        b = Base(33)
+        base = Base(33)
         with self.assertRaises(AttributeError):
-            print(b.nb_objects)
+            print(base.nb_objects)
         with self.assertRaises(AttributeError):
-            print(b.__nb_objects)
+            print(base.__nb_objects)
 
     def test_4_dictionary(self):
         """ This test checks to see if the dictionary
         is working. """
 
-        r1 = Rectangle(10, 7, 2, 8, 1)
-        d1 = r1.to_dictionary()
+        rectangle = Rectangle(10, 7, 2, 8, 1)
+        dictionary = rectangle.to_dictionary()
         j = {'x': 2, 'id': 1, 'y': 8, 'height': 7, 'width': 10}
-        jd = Base.to_json_string([d1])
-        self.assertEqual(d1, j)
-        self.assertEqual(type(d1), dict)
+        jd = Base.to_json_string([dictionary])
+        self.assertEqual(dictionary, j)
+        self.assertEqual(type(dictionary), dict)
         self.assertEqual(type(jd), str)
 
     def test_6_from_json_string(self):
@@ -135,35 +135,35 @@ class TestBase(unittest.TestCase):
     def test_10_rectangle(self):
         """ This test checks for rectangle creation. """
 
-        R1 = Rectangle(4, 5, 6)
-        R1_dict = R1.to_dictionary()
-        R2 = Rectangle.create(**R1_dict)
-        self.assertNotEqual(R1, R2)
+        Rectangle1 = Rectangle(4, 5, 6)
+        Rectangle1_dict = Rectangle1.to_dictionary()
+        Rectangle2 = Rectangle.create(**Rectangle1_dict)
+        self.assertNotEqual(Rectangle1, Rectangle2)
 
     def test_11_square(self):
         """ This test checks for the square creation. """
 
-        S1 = Square(44, 55, 66, 77)
-        S1_dict = S1.to_dictionary()
-        S2 = Rectangle.create(**S1_dict)
-        self.assertNotEqual(S1, S2)
+        Square1 = Square(44, 55, 66, 77)
+        Square1_dict = Square1.to_dictionary()
+        Square2 = Rectangle.create(**Square1_dict)
+        self.assertNotEqual(Square1, Square2)
 
     def test_12_file_rectangle(self):
         """ This test checks if the file loads from rectangle. """
 
-        R1 = Rectangle(33, 34, 35, 26)
-        R2 = Rectangle(202, 2)
-        lR = [R1, R2]
-        Rectangle.save_to_file(lR)
-        lR2 = Rectangle.load_from_file()
-        self.assertNotEqual(lR, lR2)
+        Rectangle1 = Rectangle(33, 34, 35, 26)
+        Rectangle2 = Rectangle(202, 2)
+        loadRectangle = [Rectangle1, Rectangle2]
+        Rectangle.save_to_file(loadRectangle)
+        loadRectangle2 = Rectangle.load_from_file()
+        self.assertNotEqual(loadRectangle, loadRectangle2)
 
     def test_13_file_square(self):
         """ This test checks to see if the file loads from square. """
 
-        S1 = Square(22)
-        S2 = Square(44, 44, 55, 66)
-        lS = [S1, S2]
-        Square.save_to_file(lS)
-        lS2 = Square.load_from_file()
-        self.assertNotEqual(lS, lS2)
+        Square1 = Square(22)
+        Square2 = Square(44, 44, 55, 66)
+        loadSquare = [Square1, Square2]
+        Square.save_to_file(loadSquare)
+        loadSquare2 = Square.load_from_file()
+        self.assertNotEqual(loadSquare, loadSquare2)
