@@ -12,7 +12,8 @@ if __name__ == "__main__":
     states.id ASC")
 
     for name in cursor.fetchall():
-        print(name)
+        if name == "N":
+            print(name)
 
     cursor.close()
     data_base.close()
