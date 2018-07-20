@@ -12,7 +12,7 @@ if __name__ == "__main__":
     states.id ASC")
 
     for name in cursor.fetchall():
-        if name == "N":
+        if name[1][0] == "N":
             print(name)
 
     cursor.close()
