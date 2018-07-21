@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     states = session.query(State).filter(State.name == argv[4]).all()
 
-    if states is not argv[4]:
+    if states == []:
         print("Not found")
     else:
         for state_id in states:
