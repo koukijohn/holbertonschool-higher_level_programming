@@ -13,15 +13,18 @@ def find_peak(list_of_integers):
         return None
     if len(list_of_integers) == 0:
         return None
+    # if len equal to one return first element
+    if len(list_of_integers) == 1:
+        return list_of_integers[0]
     # getting our midpoint
     midpoint = len(list_of_integers) / 2
     midpoint = int(midpoint)
     # This is comparing the middle element with its neigbours
     try:
         if (list_of_integers[midpoint - 1] <= list_of_integers[midpoint]) and \
-        (list_of_integers[midpoint + 1] <= list_of_integers[midpoint]):
+                (list_of_integers[midpoint + 1] <= list_of_integers[midpoint]):
             return list_of_integers[midpoint]
-    except:
+    except BaseException:
         if (list_of_integers[midpoint - 1] < list_of_integers[midpoint]):
             return list_of_integers[midpoint]
 
