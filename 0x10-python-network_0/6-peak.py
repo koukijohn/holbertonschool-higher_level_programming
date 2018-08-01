@@ -18,7 +18,7 @@ def find_peak(list_of_integers):
     midpoint = int(midpoint)
     # This is comparing the middle element with its neigbours
     try:
-        if (list_of_integers[midpoint - 1] <= list_of_integers[midpoint]) and
+        if (list_of_integers[midpoint - 1] <= list_of_integers[midpoint]) and \
         (list_of_integers[midpoint + 1] <= list_of_integers[midpoint]):
             return list_of_integers[midpoint]
     except:
