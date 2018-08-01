@@ -22,7 +22,7 @@ def find_peak(list_of_integers):
         (list_of_integers[midpoint + 1] <= list_of_integers[midpoint]):
             return list_of_integers[midpoint]
     except:
-        if (list_of_integers[midpoint - 1] <= list_of_integers[midpoint]):
+        if (list_of_integers[midpoint - 1] < list_of_integers[midpoint]):
             return list_of_integers[midpoint]
 
     # if left neighbor greater than midpoint, then left half has a peak elem
