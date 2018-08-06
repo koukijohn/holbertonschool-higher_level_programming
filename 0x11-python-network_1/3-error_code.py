@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+    This script takes in URL, sneds request to URL, and displays
+    response in utf8 with urllib.error.HTTPError as our status error.
 """
 
 import urllib.request
