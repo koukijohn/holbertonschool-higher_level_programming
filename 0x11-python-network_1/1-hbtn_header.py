@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
     with urllib.request.urlopen(url) as response:
         value = response.getheader('X-Request-Id')
-        print (value)
+        print(value)
