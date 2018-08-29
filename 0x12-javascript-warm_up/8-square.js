@@ -1,7 +1,8 @@
 #!/usr/bin/node
-if (parseInt(process.argv[2]) > 0) {
-  for (let x = 0; x < process.argv[2]; x++) {
-    console.log('X'.repeat(process.argv[2]));
+const iterations = process.argv[2]
+if (parseInt(iterations) > 0) {
+  for (let x = 0; x < iterations; x++) {
+    console.log('X'.repeat(iterations));
   }
 } else if (process.argv[2] < 0) {
 } else {
