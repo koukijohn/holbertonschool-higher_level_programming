@@ -7,7 +7,7 @@ let request = require('request');
 request(process.argv[2], (error, response, body) => {
   if (error) {
     console.log(error);
-  } else {
+  } else if (response.statusCode === 200){
     let results = JSON.parse(body).results;
     let movies = 0;
     for (let x = 0; x < results.length; x++) {
