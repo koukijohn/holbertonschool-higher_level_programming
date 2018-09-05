@@ -11,7 +11,7 @@ request(process.argv[2], (error, response, body) => {
     let appearances = 0;
     for (let movieTitle of results) {
       for (let characterID of movieTitle.characters) {
-        if (characterID.search('/18/') > 0) {
+        if (characterID.search('18') > 0) {
           appearances += 1;
         }
       }
