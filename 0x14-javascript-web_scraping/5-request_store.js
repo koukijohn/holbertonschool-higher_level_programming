@@ -7,9 +7,9 @@ request(process.argv[2], (error, response, body) => {
   if (error) {
     console.log(error);
   } else { // response == 200
-    let written = body;
+    let content = body;
     let fs = require('fs');
-    fs.writeFile(process.argv[3], written, 'utf-8', (error) => {
+    fs.writeFile(process.argv[3], content, 'utf-8', (error) => {
       if (error) {
         console.log(error);
       }
