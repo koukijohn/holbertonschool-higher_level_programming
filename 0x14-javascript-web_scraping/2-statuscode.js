@@ -6,6 +6,6 @@ request(process.argv[2], (error, response) => {
   if (error) {
     console.log('code:', error);
   } else {
-    console.log('code:', response && response.statusCode);
+    console.log('code:', response.statusCode);
   }
 });
