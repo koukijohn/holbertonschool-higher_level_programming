@@ -7,7 +7,7 @@ let request = require('request');
 request(URL, (error, response, body) => {
   if (error) {
     console.log(error);
-  } else {
+  } else { // response == 200
     console.log(JSON.parse(body).title);
   }
 });
